@@ -16,7 +16,7 @@ src = "img/avatar.png"
 
 [params.footer]
 since = 2025
-customText = "© 李芊墨"
+customText = "© 2025 李芊墨"
 
 # 文章设置
 [params.article]

@@ -1,0 +1,17 @@
+diff --git a/config.yaml b/config.yaml
+index b1a0bff..96fc593 100644
+--- a/config.yaml
++++ b/config.yaml
+@@ -5,7 +5,11 @@ module:
+ 
+ params:
+     mainSections:
+-        - post
++        - cuisine
++        - daily-tech
++        - tutorial
++        - math
++
+     featuredImageField: image
+     rssFullContent: true
+     favicon:

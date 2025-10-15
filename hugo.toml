@@ -1,0 +1,29 @@
+baseURL = 'https://www.liqianmo.ink/'
+languageCode = 'zh-cn'
+title = '芊墨的个人博客'
+
+theme = 'stack'
+
+# 个人资料设置
+[params.sidebar]
+emoji = "🌟"
+subtitle = "希望我的博客对你有用"
+
+[params.sidebar.avatar]
+enabled = true
+local = true
+src = "img/avatar.png"
+
+[params.footer]
+since = 2025
+customText = "© 李芊墨"
+
+# 文章设置
+[params.article]
+math = true
+toc = true
+readingTime = true
+
+[params.article.license]
+enabled = true
+default = "Licensed under CC BY-NC-SA 4.0"

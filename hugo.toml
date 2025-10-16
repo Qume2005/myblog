@@ -24,6 +24,11 @@ math = true
 toc = true
 readingTime = true
 
+# 章节设置
+[params]
+mainSections = ["cuisine", "daily-tech", "tutorial", "math"]
+
+
 [params.article.license]
 enabled = true
 default = "Licensed under CC BY-NC-SA 4.0"

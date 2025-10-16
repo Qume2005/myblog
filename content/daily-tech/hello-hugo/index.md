@@ -120,6 +120,10 @@ math = true
 toc = true
 readingTime = true
 
+# 章节设置
+[params]
+mainSections = ["cuisine", "daily-tech", "tutorial", "math"] # 你存放文章的文件夹
+
 [params.article.license]
 enabled = true
 default = "Licensed under CC BY-NC-SA 4.0"
@@ -127,30 +131,7 @@ default = "Licensed under CC BY-NC-SA 4.0"
 
 然后在`assetsimg/`目录下，添加你的头像图片，命名为`avatar.png`。
 
-## 修改主题配置
-
-在 themes/stack/config.yaml 中，找到这几行
-
-```yaml
-params:
-    mainSections:
-        - post
-```
-
-mainSections 中增改你存放文章的文件夹
-
-你可以参考笔者的配置文件，把其中的`post`改成你自己的分类文件夹。
-
-```yaml
-params:
-    mainSections:
-        - cuisine
-        - daily-tech
-        - tutorial
-        - math
-```
-
-效果如下（有点糊，可以点开查看）：
+这里展示mainSections字段设定后的效果（有点糊，可以点开查看）：
 
 ![mainSections 配置效果](mainSectionsEffect.png)
 
@@ -168,9 +149,6 @@ resources/
 # 忽略 Stack 主题的缓存文件
 themes/stack/assets/cache/
 
-# 忽略 Hugo 的配置文件
-config.toml
-
 # 忽略 Macos 系统文件
 .DS_Store
 ```
@@ -178,45 +156,6 @@ config.toml
 ## Commit 你的修改
 
 完成以上配置后，你需要提交你的修改到 Git 仓库。
-
-```bash
-git add .
-git commit -m "Add Stack theme and configure it"
-```
-
-这将应用 patch 文件中的配置到你的项目中。
-
-## Commit 你的修改
-
-完成以上配置后，需要提交修改到 Git 仓库。
-
-```bash
-git add .
-git commit -m "Add Stack theme and configure it"
-```
-
-## 添加主题配置文件的 patch
-
-由于每次更新主题后，都需要重新配置主题，所以这里需要保存一个 patch 文件，用于快速在更新主题后应用配置。
-
-执行以下命令：
-
-```bash
-cd themes/stack
-git diff --cached config.yaml > ../../hugo-theme-stack-config.patch
-cd ../..
-```
-
-每次更新主题使用以下命令：
-
-```bash
-git submodule update --init --recursive
-cd themes/stack
-git apply ../../hugo-theme-stack-config.patch
-cd ../..
-```
-
-完成以上配置后，再次提交修改到 Git 仓库。
 
 ```bash
 git add .
@@ -251,7 +190,7 @@ title = 'Hello Hugo'
 ```markdown
 +++
 date = '2025-10-15T18:00:15+08:00'
-draft = true
+draft = false # 设为 false 后，文章才会出现在博客中
 title = '速通 Hugo'
 
 description = '快速开始一个个人博客，梦开始的地方。'

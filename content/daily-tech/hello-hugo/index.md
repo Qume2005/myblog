@@ -1,6 +1,6 @@
 +++
 date = '2025-10-15T18:00:15+08:00'
-draft = true
+draft = false
 title = '速通 Hugo'
 
 description = '快速开始一个个人博客，梦开始的地方。'

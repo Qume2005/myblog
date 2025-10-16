@@ -14,7 +14,7 @@ categories = [
 ]
 +++
 
-博客原文：[https://liqianmo.ink/daily-tech/hello-hugo/](https://liqianmo.ink/daily-tech/hello-hugo/)
+博客原文：[https://blog.liqianmo.ink/daily-tech/hello-hugo/](https://blog.liqianmo.ink/daily-tech/hello-hugo/)
 
 
 这几天突然心血来潮，想搞一个个人博客，用于个人记录和分享开发中踩的各种坑。考虑后，我决定使用静态网页方案。经一番调研，在 Hugo、Hexo、WordPress、VitePress  等博客方案中，Hugo 能较好的满足进阶用户的个人博客搭建需要，故采用。
@@ -26,17 +26,15 @@ categories = [
 在开始前，请确保你有以下准备：
 
 - 一个文本编辑器（推荐Trae）
-- 一个域名（用于绑定到个人博客网站和国内外分流）
-- 一个GitHub账号（用于部署到GitHub Pages）
-- 一个Gitee账号（用于部署到Gitee Pages）（可选）
+- 一个GitHub账号（用于备份和使用GitHub Pages服务）
 
 **如果你已经大致了解过 Hugo，请跳过这段废话，直接到[快速开始](#快速开始)。**
 
 ## 笔者的思考——Hugo的定位
 
-Hugo 是一个静态网站生成器，它在Hexo、WordPress等竞品中的优势主要在于**速度快**，可以做到屏幕左边写文章，右边就实时生成页面，对于个人写作用户十分方便。同时 Hugo 相比 WordPress 等动态网站生成器，仅需要部署在 Github Page 或Gitee Page 上，速度快且无需担心 DDOS、SEO和云服务费用问题。
+Hugo 是一个静态网站生成器，它在Hexo、WordPress等竞品中的优势主要在于**速度快**，可以做到屏幕左边写文章，右边就实时生成页面，对于个人写作用户十分方便。同时 Hugo 相比 WordPress 等动态网站生成器，仅需要部署在 GitHub Page 或Gitee Page 上，速度快且无需担心 DDOS、SEO和云服务费用问题。
 
-如果你是一个**个人写作用户**，想好好写文章，对高度客制化的主题没有需求，且有一定的 git 使用经验，能够完成 commit 和 push 操作，那么可以无脑选择 Hugo。
+如果你是一个**个人写作用户**，想好好写文章，对高度客制化的主题没有需求，且有一定的 git 使用经验，能够完成 `Commit` 和 `Push` 操作，那么可以无脑选择 Hugo。
 
 原因如下：
 
@@ -74,7 +72,7 @@ Hugo有许多精美的主题可供选择。你可以在[Hugo的主题网站](htt
 ```bash
 cd myblog
 git init # 初始化 git 仓库
-git submodule add --depth=1 https://github.com/CaiJimmy/hugo-theme-stack.git themes/stack # 引用 Stack 主题的仓库
+git submodule add --depth=1 https://GitHub.com/CaiJimmy/hugo-theme-stack.git themes/stack # 引用 Stack 主题的仓库
 ```
 
 ## 安装主题
@@ -94,7 +92,7 @@ theme = "stack"
 这里参考笔者的配置文件，把其中的部分字段改成你自己的：
 
 ```toml
-baseURL = 'https://www.liqianmo.ink/' # 你的域名
+baseURL = 'https://blog.liqianmo.ink/' # 你的域名
 languageCode = 'zh-cn'
 title = '芊墨的个人博客' # 你的博客标题
 
@@ -204,7 +202,7 @@ categories = [
 ]
 +++
 
-博客原文：[https://liqianmo.ink/daily-tech/hello-hugo/](https://liqianmo.ink/daily-tech/hello-hugo/)
+博客原文：[https://blog.liqianmo.ink/daily-tech/hello-hugo/](https://blog.liqianmo.ink/daily-tech/hello-hugo/)  
 
 
 这几天突然心血来潮，想搞一个个人博客，用于个人记录和分享开发中踩的各种坑。考虑后，我决定使用静态网页方案。经一番调研，在 Hugo、Hexo、WordPress、VitePress  等博客方案中，Hugo 能较好的满足进阶用户的个人博客搭建需要，故采用。
@@ -224,15 +222,54 @@ categories = [
 hugo server
 ```
 
-这将启动一个本地开发服务器，你可以在浏览器中访问`http://localhost:1313/`来预览你的博客。
+这将启动一个本地开发服务器，你可以在文本编辑器中的集成浏览器访问`http://localhost:1313/`来预览你的博客。
 
 如果你的博客内容发生更改，Hugo 会自动重新构建你的博客，浏览器会实时更新最新内容。
+
+## 提交到 GitHub 远程仓库
+
+接下来你可以将这个项目提交到 GitHub 远程仓库，用于备份和版本控制。同时联动 GitHub Pages 服务，实现自动构建和部署。
+
+通过文本编辑器登录 GitHub 账号后执行以下命令
+
+```bash
+git add .
+git commit -m "Add Hello Hugo article" # 提交时添加文章描述，可以换成你自己的文章标题
+git push origin main
+```
+
+## 配置 GitHub Pages 服务
+
+在 GitHub 上，你需要配置 Pages 服务，将你的博客项目部署到 GitHub Pages 上。
+
+具体步骤如下：
+
+1. 在 GitHub 上，找到你的博客项目仓库，点击 `Settings` 按钮。
+2. 在左侧导航栏中，点击 `Pages` 选项。
+3. 在 `Source` 部分，选择 `GitHub Actions`。
+5. 点击 `Save` 按钮。
+6. 在 `Actions`页中点击 `New workflow`，搜索 `Hugo`，点击 `Configure`按钮，然后 `Commit changes`。
+7. 在 `Actions`页中，找到 `Run workflow`按钮，点击触发构建。
+
+等待一段时间，GitHub 会自动构建你的博客项目，并将其部署到 GitHub Pages 上。
+
+你可以在 `Settings` 页面的 `Pages` 部分，查看你的博客网站的 URL。
+
+并且每次你将仓库推送更新到 GitHub 后，GitHub Pages 服务会自动触发构建和部署，你无需手动操作，博客站点会很快完成更新。
+
+![GitHub Pages 配置](github-settings-page.png)
 
 ## 总结
 
 通过以上步骤，你可以快速搭建一个个人博客网站，开始记录你的技术日常。
 
 祝你开博客愉快！
+
+# 笔者的经验分享
+
+笔者很喜欢在 VsCode 系的文本编辑器中左边写博客，右边看实时预览，这样可以很快的确认文章的格式是否正确，也可以快速的调整样式。（富哥可以多屏协作，应该更爽）
+
+大家每次写作只需要`hugo new xxx/yyy/index.md`一下，创建一个新博文，写完了以后把 `draft` 设为 `false`，`Commit` 之后再推送更新到 GitHub 远程仓库，就能在博客站点上看到了。
 
 # 后续
 

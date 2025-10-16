@@ -270,3 +270,7 @@ git push origin main
 笔者很喜欢在 VsCode 系的文本编辑器中左边写博客，右边看实时预览，这样可以很快的确认文章的格式是否正确，也可以快速的调整样式。（富哥可以多屏协作，应该更爽）
 
 大家每次写作只需要`hugo new xxx/yyy/index.md`一下，创建一个新博文，写完了以后把 `draft` 设为 `false`，`Commit` 之后再推送更新到 GitHub 远程仓库，就能在博客站点上看到了。
+
+# 评论区
+
+传送门：[https://github.com/Qume2005/myblog/discussions/1#discussion-9032449](https://github.com/Qume2005/myblog/discussions/1#discussion-9032449)

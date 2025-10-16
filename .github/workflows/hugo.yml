@@ -48,11 +48,6 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
-      - name: Apply theme config patch
-        run: |
-          cd themes/stack &&
-          git diff --cached config.yaml > ../../hugo-theme-stack-config.patch &&
-          cd ../..
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache

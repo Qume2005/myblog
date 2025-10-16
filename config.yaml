@@ -1,0 +1,6 @@
+params:
+    mainSections:
+        - cuisine
+        - daily-tech
+        - tutorial
+        - math

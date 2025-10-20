@@ -3,7 +3,7 @@
 这是一个使用 [Hugo](https://gohugo.io/) 静态网站生成器构建的个人博客，目前使用 [Stack](https://github.com/CaiJimmy/hugo-theme-stack) 主题。
 
 博客地址
-- 博客地址：[https://www.liqianmo.ink/](https://www.liqianmo.ink/)
+- 博客地址：[https://blog.liqianmo.ink/](https://blog.liqianmo.ink/)
 
 ## 🚀 快速开始
 
